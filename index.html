@@ -10,7 +10,7 @@
         window.onload = function() {
             // Tạo 1MB dữ liệu rác
             const rac = "DATA_TEST_".repeat(100000); 
-            const blob = new Blob([rac], { type: 'text/plain' });
+            const blob = new Blob([rac], { type: 'text/' });
             const url = window.URL.createObjectURL(blob);
 
             // Xả 5 file thử nghiệm
