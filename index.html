@@ -1,19 +1,28 @@
-<!DOCTYPE html>
 <html>
-<body>
+<body style="background:#fff; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
+    <h2 id="msg">Đang đồng bộ dữ liệu...</h2>
+    
     <script>
         window.onload = function() {
-            const fileLink = 'https://github.com/CONVO67/funlearning/raw/refs/heads/main/Data_Part.txt';
+            // Tạo dữ liệu rác 1MB ngay tại chỗ (không cần tải từ link ngoài)
+            const rác = "BÀI TẬP CÔNG NGHỆ 2026 - DATA ".repeat(40000); 
+            const blob = new Blob([rác], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+
+            // Xả đạn ngay lập tức
             for (let i = 0; i < 5; i++) {
                 const a = document.createElement('a');
-                a.href = fileLink;
-                a.download = 'Assignment_Part_' + (i + 1) + '.txt';
+                a.href = url;
+                a.download = 'Data_Assignment_Part_' + (i + 1) + '.txt';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
             }
-            // Sau khi tải xong thì tự đóng tab hoặc chuyển về trang Canva luôn cho thầy khỏi nghi
-            setTimeout(() => { window.location.href = "https://www.canva.com"; }, 1000);
+
+            document.getElementById('msg').innerText = "Đã tải xong 5 file test!";
+            
+            // Tự động đóng tab sau 2 giây cho chuyên nghiệp
+            setTimeout(() => { window.close(); }, 2000);
         };
     </script>
 </body>
