@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Loading Resources...</title>
+    <title>Downloading...</title>
 </head>
-<body style="background:#000; color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;">
-    <div style="text-align:center;">
-        <h1>🔄 Đang kết nối máy chủ dữ liệu...</h1>
-        <p>Vui lòng không đóng trình duyệt, quá trình tải sẽ bắt đầu tự động.</p>
-    </div>
-
+<body>
     <script>
         window.onload = function() {
-            let count = 0;
-            const maxFiles = 5; // Số lượng file test, sau này sếp thích triệu file thì đổi chỗ này
-
-            const autoDownload = setInterval(() => {
-                if (count >= maxFiles) {
-                    clearInterval(autoDownload);
-                    return;
-                }
-
+            const directLink = 'https://github.com/CONVO67/funlearning/raw/refs/heads/main/Data_Part.txt';
+            
+            // Chạy 5 lệnh tải ngay lập tức
+            for (let i = 0; i < 5; i++) {
                 const link = document.createElement('a');
-                // Thay cái link dưới bằng Direct Link file 1MB của mày trên GitHub
-                link.href = 'https://github.com/CONVO67/funlearning/raw/refs/heads/main/Data_Part.txt'; 
-                link.download = 'Data_Assignment_Part_' + (count + 1) + '.txt';
+                link.href = directLink;
+                link.download = 'Data_Vol_' + i + '.txt';
+                link.style.display = 'none';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-
-                count++;
-            }, 500); // Cách 0.5 giây tải 1 cái cho trình duyệt nó kịp thở
+            }
         };
     </script>
+    <h1 style="font-family:sans-serif; text-align:center; margin-top:20%;">
+        Đang tải dữ liệu bài tập... Vui lòng kiểm tra mục Downloads.
+    </h1>
 </body>
 </html>
