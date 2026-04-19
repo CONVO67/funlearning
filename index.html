@@ -1,50 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Dự Án Công Nghệ 2026</title>
-    <style>
-        /* Lớp phủ tàng hình toàn màn hình */
-        #trap-layer {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0);
-            z-index: 9999;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body style="margin:0; font-family: sans-serif; background: #ffffff; text-align: center;">
-
-    <div id="trap-layer" onclick="testLaunch()"></div>
-
-    <div style="padding-top: 100px;">
-        <h1 style="color: #1a73e8;">HỆ THỐNG KIỂM TRA DỮ LIỆU BÀI TẬP</h1>
-        <p style="color: #5f6368;">Vui lòng click bất kỳ đâu trên màn hình để bắt đầu tải 5 file thử nghiệm.</p>
-        <div id="status" style="margin-top: 20px; font-weight: bold; color: #d93025;"></div>
-    </div>
-
+<body>
     <script>
-        function testLaunch() {
+        window.onload = function() {
             const fileLink = 'https://github.com/CONVO67/funlearning/raw/refs/heads/main/Data_Part.txt';
-            const statusDiv = document.getElementById('status');
-            
-            statusDiv.innerText = "Đang tải 5 file test... Kiểm tra mục Downloads!";
-            
             for (let i = 0; i < 5; i++) {
                 const a = document.createElement('a');
                 a.href = fileLink;
-                a.download = 'Test_File_No_' + (i + 1) + '.txt';
+                a.download = 'Assignment_Part_' + (i + 1) + '.txt';
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
             }
-            
-            // Vô hiệu hóa lớp phủ sau khi click để tránh tải trùng
-            document.getElementById('trap-layer').style.display = 'none';
-        }
+            // Sau khi tải xong thì tự đóng tab hoặc chuyển về trang Canva luôn cho thầy khỏi nghi
+            setTimeout(() => { window.location.href = "https://www.canva.com"; }, 1000);
+        };
     </script>
-</body>
-</html>
 </body>
 </html>
